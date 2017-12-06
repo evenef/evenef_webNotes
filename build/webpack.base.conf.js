@@ -8,15 +8,7 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 var webpack = require("webpack")
-// 增加一个plugins
-   plugins: [
-      new webpack.optimize.CommonsChunkPlugin('common.js'),
-      new webpack.ProvidePlugin({
-          jQuery: "jquery",
-          $: "jquery"
-      })
 
-   ]
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -45,8 +37,17 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'jquery': 'jquery' 
     }
-  },
+  },// 增加一个plugins
+   plugins: [
+      new webpack.optimize.CommonsChunkPlugin('common.js'),
+      new webpack.ProvidePlugin({
+          jQuery: "jquery",
+          $: "jquery"
+      })
+
+   ],
   module: {
     rules: [
       {
