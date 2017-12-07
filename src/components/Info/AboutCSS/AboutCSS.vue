@@ -1,7 +1,7 @@
 <template>
     <div class="table_box">
         <div class="btn_box">
-            <el-button type="primary">我要发贴</el-button>
+            <el-button type="primary" v-on:click='createSome'>我要发贴</el-button>
         </div>
         <el-table
             :data="tableData"
@@ -48,9 +48,7 @@
         </el-table>
         <div class="page-block">
             <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page="currentPage4"
+              :current-page="1"
               :page-size="10"
               layout="total, prev, pager, next, jumper"
               :total="tableData.lenth">
@@ -131,6 +129,9 @@ export default {
         }
     },
     methods: {
+        createSome: function(){
+            this.$router.push('/info/edit');
+        }
     }
 }
 </script>

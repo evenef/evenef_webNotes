@@ -33,7 +33,7 @@ export default {
     padding: 10px 40px;
     box-sizing: border-box;
     text-align: right;
-    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0))
+    background: linear-gradient(#24292e, rgba(0,0,0,0))
 }
 .loginForm input{
     width: 200px;

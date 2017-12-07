@@ -1,9 +1,9 @@
 <template>
     <el-container class='info'>
         <el-header class='header' style='height: 100px;'>
-            <div class="even_title">
+            <div class="even_title"><!-- 
                 <i class="logo_img"></i>
-                <span class="tit_name">天府软件园码农交流基地</span>
+                <span class="tit_name">天府软件园码农交流基地</span> -->
             </div>
             <div class="user_info">
                 <div class="icon_box">
