@@ -30,24 +30,39 @@
                             </div>
                             <p class="reply_name">{{item.repUser}}</p>
                         </div>
-                        <div class="rep_txt">
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
-                            <p>{{item.text}}</p>
+                        <div class="rep_right">
+                            <div class="rep_txt">
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                                <p>{{item.text}}</p>
+                            </div>
+                            <div class="time_line">
+                                <span>{{index + 1}}楼</span>
+                                <span>{{item.repTime}}</span>
+                                <span class="repBtn">回复</span>
+                            </div>
+                            <div class="repR_box">
+                                <div>
+                                    <el-input
+                                        class='repR_inp'
+                                        type="textarea"
+                                        :rows="2"
+                                        resize='none'
+                                        placeholder="请输入回复内容"
+                                        v-model="textarea">
+                                    </el-input>
+                                </div>
+                                <el-button type="primary" class='sub_rep'>发表</el-button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="time_line">
-                        <span>{{index + 1}}楼</span>
-                        <span>{{item.repTime}}</span>
-                        <span class="repBtn">回复</span>
                     </div>
                 </li>
             </ul>
@@ -60,14 +75,25 @@
                 </el-pagination>
             </div>
         </div>
+        <div class="rep_box">
+            <h4>
+                <i class="el-icon-edit-outline"></i>
+                发表回复
+            </h4>
+            <div id="editorElem" style="text-align:left;"></div>
+            <el-button type="primary" class='sub_pub'>发表</el-button>
+        </div>
   	</div>
 </template>
 
 <script>
+import E from 'wangeditor'
 export default {
     name: 'editor',
     data () {
         return {
+            textarea:'',
+            editorContent: '',
             date: '2017-12-06 18:00',
             creater: '宋佳佳',
             lastDate: '2017-12-08 19:00',
@@ -117,6 +143,13 @@ export default {
     created: {
     },
     methods: {
+    },
+    mounted() {
+        var editor = new E('#editorElem')
+        editor.customConfig.onchange = (html) => {
+          this.editorContent = html
+        }
+        editor.create()
     }
 }
 </script>
@@ -176,6 +209,20 @@ export default {
     text-align: center;
     margin-right: 20px;
 }
+.rep_right{
+    flex: 1;
+}
+.repR_box{
+    padding: 20px 10px;
+    margin: 10px 0;
+    background-color: #f5faff;
+    border: 1px solid #e1eefb;
+    border-radius: 4px;
+    text-align: right;
+}
+.repR_inp{
+    margin-bottom: 10px;
+}
 .reply_name{
     width: 90%;
     margin: 0 auto;
@@ -221,5 +268,19 @@ export default {
 .page-block{
     margin-top: 10px;
     text-align: right;
+}
+.rep_box>h4{
+    color: #24292e;;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.el-icon-edit-outline{
+    font-size: 22px;
+    margin-right: 2px;
+    color: #eb9e05;
+}
+.sub_pub{
+    margin-top: 10px;
 }
 </style>
