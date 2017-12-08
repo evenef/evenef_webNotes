@@ -42,7 +42,7 @@
                 width="100"
                 >
                 <template slot-scope="scope">
-                    <el-button type="text" size="small">查看</el-button>
+                    <el-button type="text" size="small" v-on:click='toDetail'>查看</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -131,6 +131,9 @@ export default {
     methods: {
         createSome: function(){
             this.$router.push('/info/edit');
+        },
+        toDetail: function(){
+            this.$router.push('/info/articledetails');
         }
     }
 }

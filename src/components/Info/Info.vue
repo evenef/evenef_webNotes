@@ -122,7 +122,7 @@ export default {
 .info{
     width: 100%;
     height: 100%;
-    background: url('http://r.photo.store.qq.com/psb?/V12H9F8V2kHZ7x/nyT.W6Gt6KmEcpQyUa6i*iiT1HP5pTtuhqYGAk8YrAI!/r/dPMAAAAAAAAA');
+    background: url('https://wx4.sinaimg.cn/mw1024/b12879fcgy1fm9c4hpqmlj21290hst9o.jpg');
     background-size: 100%;
 
 }
